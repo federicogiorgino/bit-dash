@@ -2,17 +2,17 @@ import "./App.css";
 
 import { AppProvider } from "./context/AppProvider";
 
-import Welcome from "./components/Mix/Welcome";
 import Navbar from "./components/Navbar/Navbar";
-  
+
 import { Layout } from "./styles/StyledComponents";
+import Settings from "./pages/Settings";
 
 const App = () => {
   return (
     <Layout>
       <AppProvider>
         <Navbar />
-        <Welcome />
+        <Settings />
       </AppProvider>
     </Layout>
   );

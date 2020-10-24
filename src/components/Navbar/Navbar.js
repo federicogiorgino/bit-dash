@@ -5,7 +5,7 @@ import NavbarButton from "./NavbarButton";
 const Navbar = () => {
   return (
     <NavBar>
-      <Logo>myCrypto</Logo>
+      <Logo>Bit.Dash</Logo>
       <div />
       <NavbarButton name='dashboard' active />
       <NavbarButton name='settings' />
