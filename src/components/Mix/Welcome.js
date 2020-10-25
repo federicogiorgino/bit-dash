@@ -5,7 +5,11 @@ const Welcome = () => {
     return (
       <AppContext.Consumer>
         {({ firstVisit }) =>
-          firstVisit ? <div>Welcome to Bit.Dash. Select your favourite coins.</div> : null
+          firstVisit ? (
+            <div style={{ margin: "20px 0" }}>
+              Welcome to Bit.Dash. Select your favourite coins.
+            </div>
+          ) : null
         }
       </AppContext.Consumer>
     );
