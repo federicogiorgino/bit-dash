@@ -7,6 +7,7 @@ import {
   lightboxShadow,
   mainColorBackground,
   secondaryColorBackground,
+  mediumFont,
 } from "./styles";
 
 export const Layout = styled.div`
@@ -106,4 +107,47 @@ export const SearchInput = styled.input`
   border: none
   color: white
   padding: 10px
+`;
+
+export const PricesGrid = styled.div`
+  display: grid;
+  margin-top: 30px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 15px;
+`;
+
+export const PricePaper = styled.div`
+  ${lightboxShadow}
+  ${mainColorBackground}
+  padding: 10px
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const SelectablePricePaper = styled(PricePaper)`
+  flex-direction: column;
+  &:hover {
+    cursor: pointer;
+    ${greenBoxShadow}
+  }
+`;
+
+export const PriceLabel = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const PriceVariation = styled.div`
+  color: green;
+  font-weight: bold;
+  ${(props) =>
+    props.negativeChange &&
+    css`
+      color: red;
+    `}
+`;
+
+export const PriceValue = styled.div`
+  ${mediumFont}
 `;

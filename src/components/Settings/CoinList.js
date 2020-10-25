@@ -1,6 +1,6 @@
 import React from "react";
 import { AppContext } from "../../context/AppProvider";
-import { Grid, SelectablePaper } from "../../styles/StyledComponents";
+import { Grid } from "../../styles/StyledComponents";
 import CoinPaper from "./CoinPaper";
 
 const filteredCoinsRender = (coinList, filteredCoins) => {
@@ -17,7 +17,7 @@ const CoinList = ({ topSection }) => {
       {({ coinList, favourites, filteredCoins }) => (
         <Grid>
           {coinsRender(coinList, topSection, favourites, filteredCoins).map((coinKey) => (
-            <CoinPaper topSection={topSection} coinKey={coinKey} />
+            <CoinPaper topSection={topSection} coinKey={coinKey} key={coinKey} />
           ))}
         </Grid>
       )}

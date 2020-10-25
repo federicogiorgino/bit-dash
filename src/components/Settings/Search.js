@@ -1,4 +1,3 @@
-import { filter } from "lodash";
 import React from "react";
 import _ from "lodash";
 import { AppContext } from "../../context/AppProvider";
@@ -18,8 +17,6 @@ const handleFilter = _.debounce((inputValue, coinList, setFilteredCoins) => {
 
     return _.includes(fuzzyResults, symbolKey) || _.includes(fuzzyResults, coinName);
   });
-
-  console.log(filteredCoins);
 
   setFilteredCoins(filteredCoins);
 }, 500);

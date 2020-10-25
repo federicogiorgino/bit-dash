@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { Layout } from "./styles/StyledComponents";
 import Settings from "./pages/Settings";
 import Content from "./components/Mix/Content";
+import Dashboard from "./pages/Dashboard";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <AppProvider>
         <Navbar />
         <Content>
+          <Dashboard />
           <Settings />
         </Content>
       </AppProvider>
