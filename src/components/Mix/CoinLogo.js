@@ -1,10 +1,10 @@
 import React from "react";
-
-const CoinLogo = ({ coin, style }) => {
+import { CoinImg } from "../../styles/StyledComponents";
+const CoinLogo = ({ coin, large }) => {
   return (
-    <img
+    <CoinImg
+      large={large}
       alt={coin.CoinSymbol}
-      style={style || { height: "40px", borderRadius: "50px" }}
       src={`http://cryptocompare.com/${coin.ImageUrl}`}
     />
   );

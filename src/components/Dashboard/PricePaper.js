@@ -1,4 +1,5 @@
 import React from "react";
+import { AppContext } from "../../context/AppProvider";
 import {
   PriceLabel,
   PriceValue,
@@ -12,16 +13,20 @@ const PricePaper = ({ price, index }) => {
   let data = price[symbol]["USD"];
 
   return (
-    <SelectablePricePaper>
-      <PriceLabel>
-        <div>{symbol}</div>
-        <PriceVariation negativeChange={data.CHANGEPCT24HOUR < 0}>
-          {formatPrice(data.CHANGEPCT24HOUR)}%
-        </PriceVariation>
-      </PriceLabel>
+    <AppContext.Consumer>
+      {({ currentFavourite, setCurrentFavourite }) => (
+        <SelectablePricePaper currentFavourite={currentFavourite === symbol} onClick={() => {setCurrentFavourite(symbol)}}> 
+          <PriceLabel>
+            <div>{symbol}</div>
+            <PriceVariation negativeChange={data.CHANGEPCT24HOUR < 0}>
+              {formatPrice(data.CHANGEPCT24HOUR)}%
+            </PriceVariation>
+          </PriceLabel>
 
-      <PriceValue>{formatPrice(data.PRICE)}$</PriceValue>
-    </SelectablePricePaper>
+          <PriceValue>{formatPrice(data.PRICE)}$</PriceValue>
+        </SelectablePricePaper>
+      )}
+    </AppContext.Consumer>
   );
 };
 

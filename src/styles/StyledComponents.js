@@ -8,6 +8,7 @@ import {
   mainColorBackground,
   secondaryColorBackground,
   mediumFont,
+  regularFont,
 } from "./styles";
 
 export const Layout = styled.div`
@@ -24,17 +25,25 @@ export const NavBar = styled.div`
 export const Logo = styled.div`
   font-size: 2em;
   font-weight: bold;
+  color: ${accentColor};
 `;
 
 export const ControlButton = styled.div`
   cursor: pointer;
-  text-transform: capitalize
-    ${(props) =>
-      props.active &&
-      css`
-        text-decoration: underline;
-        font-weight: bold;
-      `};
+  text-transform: capitalize;
+  ${(props) =>
+    props.active &&
+    css`
+      text-decoration: underline;
+      color: ${accentColor};
+      font-weight: bold;
+    `};
+
+  ${(props) =>
+    props.hidden &&
+    css`
+      display: none;
+    `};
 `;
 
 export const Button = styled.div`
@@ -112,7 +121,9 @@ export const SearchInput = styled.input`
 export const PricesGrid = styled.div`
   display: grid;
   margin-top: 30px;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+  // grid-template-columns: repeat(5, 1fr);
   grid-gap: 15px;
 `;
 
@@ -126,6 +137,13 @@ export const PricePaper = styled.div`
 
 export const SelectablePricePaper = styled(PricePaper)`
   flex-direction: column;
+
+  ${(props) =>
+    props.currentFavourite &&
+    css`
+      ${greenBoxShadow}
+      pointer-events: none
+    `}
   &:hover {
     cursor: pointer;
     ${greenBoxShadow}
@@ -150,4 +168,49 @@ export const PriceVariation = styled.div`
 
 export const PriceValue = styled.div`
   ${mediumFont}
+`;
+
+export const ChartLayout = styled.div`
+  display: grid;
+  margin-top: 30px;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 5fr;
+`;
+
+export const Container = styled.div`
+  padding: 20px;
+  ${lightboxShadow};
+  ${mainColorBackground}
+`;
+
+export const CoinDetails = styled.div`
+  ${lightboxShadow};
+  ${mainColorBackground};
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CoinImg = styled.img`
+  height: 50px;
+  border-radius: 100px;
+  ${(props) =>
+    props.large &&
+    css`
+      height: 200px;
+    `}
+`;
+
+export const Selector = styled.select`
+  ${mainColorBackground};
+  color: #fff;
+  ${regularFont};
+  float: right;
+  border: 1px solid;
+  padding: 5px;
+
+  border: 0px;
+  outline: 0px;
 `;

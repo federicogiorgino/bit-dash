@@ -2,11 +2,15 @@ import React from "react";
 import { AppContext } from "../../context/AppProvider";
 import { ControlButton } from "../../styles/StyledComponents";
 
-const NavbarButton = ({ name, active }) => {
+const NavbarButton = ({ name }) => {
   return (
     <AppContext.Consumer>
-      {({ page, setPage }) => (
-        <ControlButton active={page === name} onClick={() => setPage(name)}>
+      {({ page, setPage, firstVisit }) => (
+        <ControlButton
+          active={page === name}
+          onClick={() => setPage(name)}
+          hidden={firstVisit && name === "dashboard"}
+        >
           {name}
         </ControlButton>
       )}
