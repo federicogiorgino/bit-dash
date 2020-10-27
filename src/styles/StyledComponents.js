@@ -17,13 +17,13 @@ export const Layout = styled.div`
 
 export const NavBar = styled.div`
   display: grid;
-  grid-template-columns: 200px auto 100px 100px;
+  grid-template-columns: 2fr 8fr 1fr 1fr;
 
   align-items: center;
 `;
 
 export const Logo = styled.div`
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
   color: ${accentColor};
 `;
@@ -31,13 +31,14 @@ export const Logo = styled.div`
 export const ControlButton = styled.div`
   cursor: pointer;
   text-transform: capitalize;
-  ${(props) =>
-    props.active &&
-    css`
-      text-decoration: underline;
-      color: ${accentColor};
-      font-weight: bold;
-    `};
+  margin-right: 10px
+    ${(props) =>
+      props.active &&
+      css`
+        text-decoration: underline;
+        color: ${accentColor};
+        font-weight: bold;
+      `};
 
   ${(props) =>
     props.hidden &&
@@ -121,7 +122,7 @@ export const SearchInput = styled.input`
 export const PricesGrid = styled.div`
   display: grid;
   margin-top: 30px;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
   // grid-template-columns: repeat(5, 1fr);
   grid-gap: 15px;
@@ -178,7 +179,7 @@ export const ChartLayout = styled.div`
 `;
 
 export const Container = styled.div`
-  padding: 20px;
+  padding: 10px;
   ${lightboxShadow};
   ${mainColorBackground}
 `;
@@ -189,7 +190,7 @@ export const CoinDetails = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 `;
 
